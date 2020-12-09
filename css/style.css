@@ -11,3 +11,9 @@
 html {
     scroll-behavior: smooth;
 }
+
+@media all and (max-width: 767px) {
+    .mt-sm-resp {
+        margin-top: 28px;
+    }
+}
