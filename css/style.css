@@ -30,6 +30,53 @@ html {
     transition: all 1s;
 }
 
+
+/* Efecto boton nombre navbar */
+
+.magnifyText {
+    color: hsl(222, 25%, 14%);
+    transition: color 0.25s ease-in-out, transform 0.25s ease-in-out;
+}
+
+.magnifyText:hover {
+    transform: scale(1.05);
+    color: hsl(243, 80%, 62%);
+}
+
+.magnifyText:active {
+    transform: scale(.9);
+}
+
+
+/* Efecto botones navbar */
+
+.borderFade {
+    padding-bottom: 1px;
+    color: hsl(222, 25%, 14%);
+    position: relative;
+}
+
+.borderFade::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    transform: translateY(3px);
+    background: #d0d3d3;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.borderFade:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Efecto banderas */
+
 .swingHorizontal {
     color: hsl(222, 25%, 14%);
 }
