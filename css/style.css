@@ -17,3 +17,10 @@ html {
         margin-top: 28px;
     }
 }
+
+#btnArriba {
+    position: fixed;
+    bottom: 20px;
+    right: -100px;
+    transition: all 1s;
+}
