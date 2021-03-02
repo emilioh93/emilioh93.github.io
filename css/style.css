@@ -31,23 +31,6 @@ html {
 }
 
 
-/* Efecto boton nombre navbar */
-
-.magnifyText {
-    color: hsl(222, 25%, 14%);
-    transition: color 0.25s ease-in-out, transform 0.25s ease-in-out;
-}
-
-.magnifyText:hover {
-    transform: scale(1.05);
-    color: hsl(240, 7%, 14%);
-}
-
-.magnifyText:active {
-    transform: scale(.9);
-}
-
-
 /* Efecto botones navbar */
 
 .borderFade {
