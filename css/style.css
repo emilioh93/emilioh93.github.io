@@ -4,8 +4,8 @@
 }
 
 .fondo {
-    background-color: #3ff4f3;
-    background-image: linear-gradient(132deg, #3ff4f3 0%, #1645a0 100%);
+    background-color: #FF7F11;
+    background-image: linear-gradient(132deg, #FF7F11 0%, #FF1B1C 100%);
 }
 
 .avatar {
@@ -100,7 +100,6 @@ html {
 
 .bgCardsExpLab {
     background-color: #2e302e;
-    opacity: 0.7;
     background-image: linear-gradient(135deg, #484b48 25%, transparent 25%), linear-gradient(225deg, #484b48 25%, transparent 25%), linear-gradient(45deg, #484b48 25%, transparent 25%), linear-gradient(315deg, #484b48 25%, #2e302e 25%);
     background-position: 34px 0, 34px 0, 0 0, 0 0;
     background-size: 68px 68px;
@@ -112,9 +111,8 @@ html {
 }
 
 .bgCardsEdu {
-    background-color: #40c21f;
-    opacity: 0.7;
-    background-image: linear-gradient(135deg, #0c9108 25%, transparent 25%), linear-gradient(225deg, #0c9108 25%, transparent 25%), linear-gradient(45deg, #0c9108 25%, transparent 25%), linear-gradient(315deg, #0c9108 25%, #40c21f 25%);
+    background-color: #FF1B1C;
+    background-image: linear-gradient(135deg, #8f1717 25%, transparent 25%), linear-gradient(225deg, #aa1919 25%, transparent 25%), linear-gradient(45deg, #ac1111 25%, transparent 25%), linear-gradient(315deg, #ac1414 25%, #FF1B1C 25%);
     background-position: 34px 0, 34px 0, 0 0, 0 0;
     background-size: 68px 68px;
     background-repeat: repeat;
