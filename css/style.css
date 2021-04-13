@@ -74,6 +74,50 @@ html {
     animation-iteration-count: 1;
 }
 
+
+/* ÍCONOS HABILIDADES */
+
+.iconosSkills {
+    font-size: 50px;
+    margin: 20px;
+}
+
+#html {
+    color: #E34F26;
+}
+
+#css3 {
+    color: #1572B6;
+}
+
+#bootstrap {
+    color: #7952B3;
+}
+
+#javascript {
+    color: #F7DF1E;
+}
+
+#react {
+    color: #61DAFB;
+}
+
+#git {
+    color: #F05032;
+}
+
+#unity {
+    color: #000;
+}
+
+#scrum {
+    color: pink;
+}
+
+#trello {
+    color: #0079BF;
+}
+
 @keyframes swingHorizontal {
     15% {
         transform: translateX(5px);
