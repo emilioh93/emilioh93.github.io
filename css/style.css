@@ -79,7 +79,7 @@ html {
 
 .iconosSkills {
     font-size: 50px;
-    margin: 20px;
+    margin: 10px 20px;
 }
 
 #html {
@@ -116,6 +116,30 @@ html {
 
 #trello {
     color: #0079BF;
+}
+
+#wordpress {
+    color: #21759B;
+}
+
+#android {
+    color: #3DDC84;
+}
+
+#slack {
+    color: #4A154B;
+}
+
+#python {
+    color: #3776AB;
+}
+
+#java {
+    color: #007396;
+}
+
+#csharp {
+    color: #239120;
 }
 
 @keyframes swingHorizontal {
