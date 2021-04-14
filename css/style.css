@@ -77,9 +77,13 @@ html {
 
 /* ÍCONOS HABILIDADES */
 
+.skill {
+    margin: 10px 20px;
+    max-width: 60px;
+}
+
 .iconosSkills {
     font-size: 50px;
-    margin: 10px 20px;
 }
 
 #html {
