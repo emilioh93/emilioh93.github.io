@@ -224,6 +224,20 @@ html {
 /* -------------------------------------------------------------------------- */
 
 .cardsCarousel {
-    height: 100%!important;
-    min-height: 500px!important;
+    height: 100%;
+    min-height: 500px;
+}
+
+.cardsCarousel img {
+    height: 250px;
+    max-height: 250px;
+}
+
+.cardsCarousel .card-body .card-title {
+    font-weight: bold;
+}
+
+.cardsCarousel .card-body a {
+    position: absolute;
+    bottom: 10px;
 }
