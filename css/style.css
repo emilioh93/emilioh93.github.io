@@ -232,6 +232,7 @@ html {
 .cardsCarousel img {
     height: 250px;
     max-height: 250px;
+    object-fit: contain;
 }
 
 .cardsCarousel .card-body .card-title {
