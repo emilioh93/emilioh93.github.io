@@ -95,6 +95,9 @@ html {
 .skill {
     margin: 10px 20px;
     max-width: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .iconosSkills {
@@ -119,6 +122,10 @@ html {
 
 #react {
     color: #61DAFB;
+}
+
+#material-ui {
+    width: 80%;
 }
 
 #git {
