@@ -84,6 +84,34 @@ html {
 }
 
 
+/* -------------------------------- Boton CV -------------------------------- */
+
+#btnCV {
+    box-shadow: 0px 10px 10px -7px black;
+    background: linear-gradient(to bottom, #545657 5%, #050505 100%);
+    background-color: #545657;
+    border-radius: 8px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 13px 32px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #5a5f61;
+}
+
+#btnCV:hover {
+    background: linear-gradient(to bottom, #050505 5%, #545657 100%);
+    background-color: #050505;
+}
+
+#btnCV:active {
+    position: relative;
+    top: 1px;
+}
+
+
 /* -------------------------------------------------------------------------- */
 
 
