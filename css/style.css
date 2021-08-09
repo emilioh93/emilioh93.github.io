@@ -157,6 +157,35 @@ html {
     fill: #0081CB;
 }
 
+#mongoDB {
+    width: 80%;
+    fill: #47A248;
+}
+
+#express {
+    width: 80%;
+    fill: #000000;
+}
+
+#nodeJS {
+    color: #339933;
+}
+
+#postman {
+    width: 80%;
+    fill: #FF6C37;
+}
+
+#babel {
+    width: 80%;
+    fill: #F9DC3E;
+}
+
+#nodemon {
+    width: 80%;
+    fill: #76D04B;
+}
+
 #git {
     color: #F05032;
 }
