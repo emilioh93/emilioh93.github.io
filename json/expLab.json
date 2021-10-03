@@ -1,0 +1,33 @@
+[{
+        "id": 4,
+        "inicio": "Septiembre 2021",
+        "fin": "Presente",
+        "empresa": "Scalar",
+        "puesto": "Frontend Developer",
+        "descripcion": "Trabajo actualmente en la empresa Scalar como desarrollador frontend. Como tecnología principal utilizo React JS."
+    },
+    {
+        "id": 3,
+        "inicio": "Marzo 2021",
+        "fin": "Julio 2021",
+        "empresa": "Earniom",
+        "puesto": "Frontend Developer",
+        "descripcion": "Trabajé en el sitio oficial de Earniom. Subí el sitio a hosting. Realicé mantenimiento."
+    },
+    {
+        "id": 2,
+        "inicio": "Febrero 2021",
+        "fin": "Marzo 2021",
+        "empresa": "One Page Agency",
+        "puesto": "Desarrollo Web - Mantenimiento",
+        "descripcion": "Realicé mantenimiento de sitios web de clientes de la agencia, instalé y configuré APIs, modifiqué el diseño según los requisitos solicitados."
+    },
+    {
+        "id": 1,
+        "inicio": "Noviembre 2019",
+        "fin": "Marzo 2020",
+        "empresa": "Rappi Arg SAS",
+        "puesto": "Analista de Operaciones & Partner Support",
+        "descripcion": "<b>Analista de Operaciones:</b> brindé soporte y capacitación a repartidores, realicé análisis de cancelaciones diarias, semanales y mensuales, me encargué de comunicaciones masivas por medio de herramientas brindadas por la empresa.<br><br><b>Partner Support:</b> brindé soporte y capacitación a locales adheridos, me encargué de la ruta de bolsas y material POP para locales, administré la organización y reparto de tablets y otros dispositivos, me encargué del inventario del depósito."
+    }
+]
