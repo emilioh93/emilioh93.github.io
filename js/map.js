@@ -4,15 +4,15 @@ import dataPortES from "../json/portES.json" assert { type: "json" };
 const expLab = dataExpLab;
 const portES = dataPortES;
 
-const mapExpLab = expLab?.mapExpLab((e,i) => {
+const mapExpLab = expLab?.map((e) => {
   return (`
-    <article key={i} class="card shadow">
+    <article class="card shadow">
       <div class="row no-gutters">
         <div class="col-md-4 bgCardsExpLab text-light d-flex flex-column justify-content-center align-items-center pt-3">
           <p>
             ${e.inicio} - ${e.fin}
           </p>
-          <p>${e.empresa}</p>
+          <p><img src=${e.logo} alt=${e.empresa} class="logoEmpresa"> <span class="nombreEmpresa">${e.empresa}</span></p>
         </div>
         <div class="col-md-8">
           <div class="card-body">

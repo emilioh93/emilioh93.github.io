@@ -308,3 +308,22 @@ html {
     position: absolute;
     bottom: 10px;
 }
+
+
+/* -------------------------------------------------------------------------- */
+
+
+/*                             Experiencia Laboral                            */
+
+
+/* -------------------------------------------------------------------------- */
+
+.logoEmpresa {
+    width: 5vh;
+    border-radius: 50%;
+}
+
+.nombreEmpresa {
+    font-weight: bold;
+    font-size: larger;
+}
