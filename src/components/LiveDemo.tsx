@@ -172,7 +172,7 @@ export function LiveDemo() {
         turning the sale into a pre-order.
       </p>
       <ol
-        className="mt-4 mb-5 flex flex-wrap gap-2 text-sm"
+        className="mt-4 mb-5 -ml-3 flex flex-wrap gap-2 text-sm"
         aria-label="Demo steps"
       >
         {STEPS.map((label, i) => (
@@ -194,7 +194,7 @@ export function LiveDemo() {
         ))}
       </ol>
       <LayoutGroup>
-        <div className="relative grid gap-4 sm:grid-cols-[15rem_1fr] sm:items-start">
+        <div className="relative grid gap-4 sm:grid-cols-[15rem_1fr] sm:items-stretch">
           {/* Storefront */}
           <div className="rounded-2xl border border-line bg-slate p-4 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.7)]">
             <p className="mb-3 text-xs text-fog">What the shopper sees</p>
@@ -297,7 +297,7 @@ export function LiveDemo() {
           </div>
 
           {/* Merchant panel */}
-          <div className="rounded-2xl border border-line bg-slate p-4 sm:mt-10">
+          <div className="flex flex-col rounded-2xl border border-line bg-slate p-4">
             <p className="mb-3 text-xs text-fog">
               What the store owner sees in Prevendé
             </p>
@@ -316,7 +316,7 @@ export function LiveDemo() {
             </div>
             <div
               ref={list}
-              className="relative mt-4 min-h-[9rem] sm:min-h-[13.5rem]"
+              className="relative mt-4 min-h-[9rem] flex-1"
             >
               <AnimatePresence initial={false}>
                 {orders.length === 0 && (

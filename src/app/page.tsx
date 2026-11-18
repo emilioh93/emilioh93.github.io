@@ -3,7 +3,6 @@ import { Manifesto } from "@/components/Manifesto";
 import { PrevendeReveal } from "@/components/PrevendeReveal";
 import { Demo } from "@/components/Demo";
 import { Listero } from "@/components/Listero";
-import { Lab } from "@/components/Lab";
 import { Experience } from "@/components/Experience";
 import { ContactTitle } from "@/components/ContactTitle";
 
@@ -17,9 +16,6 @@ export default function Home() {
         <nav aria-label="Sections" className="hidden gap-6 sm:flex">
           <a href="#work" className="opacity-70 hover:opacity-100">
             Work
-          </a>
-          <a href="#lab" className="opacity-70 hover:opacity-100">
-            Lab
           </a>
           <a href="#experience" className="opacity-70 hover:opacity-100">
             Experience
@@ -35,7 +31,6 @@ export default function Home() {
         <PrevendeReveal />
         <Demo />
         <Listero />
-        <Lab />
         <Experience />
         <section
           id="contact"
