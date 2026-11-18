@@ -1,3 +1,9 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll } from "motion/react";
+import { SectionTitle } from "./SectionTitle";
+
 const ROLES = [
   {
     company: "Brightscout",
@@ -14,14 +20,29 @@ const ROLES = [
 ];
 
 export function Experience() {
+  const ref = useRef<HTMLOListElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 80%", "end 60%"] });
+
   return (
     <section id="experience" aria-labelledby="exp-title" className="mx-auto max-w-6xl px-6 py-24">
-      <h2 id="exp-title" className="font-display text-4xl tracking-tight sm:text-5xl" style={{ fontVariationSettings: `"wght" 520, "wdth" 88` }}>
-        Experience
-      </h2>
-      <ol className="mt-12 border-t border-line">
-        {ROLES.map((r) => (
-          <li key={r.company} className="grid gap-2 border-b border-line py-8 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-10">
+      <SectionTitle id="exp-title">Experience</SectionTitle>
+      <ol ref={ref} className="relative mt-12 sm:pl-0">
+        {/* Timeline rule draws itself as the list scrolls into view. */}
+        <motion.span
+          aria-hidden
+          className="absolute top-0 left-0 h-px w-full origin-left bg-line"
+          style={reduce ? undefined : { scaleX: scrollYProgress }}
+        />
+        {ROLES.map((r, idx) => (
+          <motion.li
+            key={r.company}
+            initial={reduce ? false : { opacity: 0, x: -12 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-20% 0px" }}
+            transition={{ delay: idx * 0.12, duration: 0.5 }}
+            className="grid gap-2 border-b border-line py-8 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-10"
+          >
             <p className="text-fog tabular-nums">{r.when}</p>
             <div>
               <p className="text-xl">
@@ -29,7 +50,7 @@ export function Experience() {
               </p>
               <p className="mt-3 max-w-[40rem] text-bone/85">{r.text}</p>
             </div>
-          </li>
+          </motion.li>
         ))}
       </ol>
     </section>

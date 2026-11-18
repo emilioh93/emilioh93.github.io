@@ -1,6 +1,8 @@
 import { CommandMenu } from "./lab/CommandMenu";
 import { RangeChart } from "./lab/RangeChart";
 import { CopyField } from "./lab/CopyField";
+import { SectionTitle } from "./SectionTitle";
+import { Spotlight } from "./Spotlight";
 
 const PIECES = [
   {
@@ -23,15 +25,14 @@ const PIECES = [
 export function Lab() {
   return (
     <section id="lab" aria-labelledby="lab-title" className="mx-auto max-w-6xl px-6 py-24">
-      <h2 id="lab-title" className="font-display text-4xl tracking-tight sm:text-5xl" style={{ fontVariationSettings: `"wght" 520, "wdth" 88` }}>
-        Lab
-      </h2>
+      <SectionTitle id="lab-title">Lab</SectionTitle>
       <p className="mt-4 max-w-[36rem] text-fog">
         Small interface studies. They are live, so try them.
       </p>
       <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line bg-line lg:grid-cols-3">
         {PIECES.map(({ title, note, Demo }) => (
-          <figure key={title} className="flex flex-col bg-slate p-4">
+          <Spotlight key={title} className="bg-slate">
+          <figure className="flex h-full flex-col p-4">
             <div className="relative">
               <Demo />
             </div>
@@ -40,6 +41,7 @@ export function Lab() {
               <p className="mt-1 text-sm text-fog">{note}</p>
             </figcaption>
           </figure>
+          </Spotlight>
         ))}
       </div>
     </section>

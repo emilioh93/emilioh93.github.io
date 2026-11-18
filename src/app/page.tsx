@@ -2,6 +2,7 @@ import { Hero } from "@/components/Hero";
 import { Work } from "@/components/Work";
 import { Lab } from "@/components/Lab";
 import { Experience } from "@/components/Experience";
+import { ContactTitle } from "@/components/ContactTitle";
 
 export default function Home() {
   return (
@@ -21,13 +22,7 @@ export default function Home() {
         <Lab />
         <Experience />
         <section id="contact" aria-labelledby="contact-title" className="mx-auto max-w-6xl px-6 pt-24 pb-32">
-          <h2
-            id="contact-title"
-            className="font-display text-[clamp(2.5rem,7vw,5.5rem)] leading-[0.95] tracking-tight"
-            style={{ fontVariationSettings: `"wght" 380, "wdth" 85` }}
-          >
-            Building something that should feel good to use?
-          </h2>
+          <ContactTitle />
           <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-lg">
             <a href="mailto:emiliohurtado1@gmail.com" className="text-iris underline decoration-iris/40 underline-offset-4 hover:decoration-iris">
               emiliohurtado1@gmail.com

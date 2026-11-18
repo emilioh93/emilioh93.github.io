@@ -1,30 +1,13 @@
-import Image from "next/image";
+import { SectionTitle } from "./SectionTitle";
+import { WorkShots } from "./WorkShots";
 
 export function Work() {
   return (
     <section id="work" aria-labelledby="work-title" className="mx-auto max-w-6xl px-6 py-24">
-      <h2 id="work-title" className="font-display text-4xl tracking-tight sm:text-5xl" style={{ fontVariationSettings: `"wght" 520, "wdth" 88` }}>
-        Selected work
-      </h2>
+      <SectionTitle id="work-title">Selected work</SectionTitle>
 
       <article className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,22rem)] lg:gap-16">
-        <div className="relative">
-          <Image
-            src="/work/panel-pedidos.webp"
-            alt="Prevendé orders panel on desktop, listing pre-orders with their status and estimated delivery dates"
-            width={1600}
-            height={923}
-            className="w-full rounded-xl border border-line"
-            priority
-          />
-          <Image
-            src="/work/panel-producto-mobile.webp"
-            alt="Prevendé product settings on mobile"
-            width={750}
-            height={1614}
-            className="absolute -right-3 -bottom-10 hidden w-[22%] rounded-[1.4rem] border-4 border-graphite shadow-[0_30px_60px_-25px_rgba(0,0,0,0.8)] sm:block"
-          />
-        </div>
+        <WorkShots />
         <div className="lg:pt-4">
           <h3 className="font-display text-3xl" style={{ fontVariationSettings: `"wght" 600, "wdth" 90` }}>
             Prevendé
