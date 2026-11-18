@@ -5,34 +5,70 @@ import { motion, useReducedMotion } from "motion/react";
 
 const CLIENTS = [
   {
+    name: "DatologyAI",
+    url: "https://www.datologyai.com",
+    what: "Next.js, Payload CMS",
+    body: "Built pages of their 2026 site from Figma on Next.js and Payload CMS, including the Labs collection. Upgraded Payload from 3.49 to 3.84 against the production database, added bot protection to the contact form, and set up analytics.",
+  },
+  {
+    name: "Zephon",
+    url: "https://www.zephon.io",
+    what: "Next.js, launch site",
+    body: "The launch site for DatologyAI's training data loader: a static Next.js page with a chart that compares loaders step by step and a terminal that shows the first batch, matched to their real output.",
+  },
+  {
+    name: "Key",
+    url: "https://key.co",
+    what: "Next.js, auth, search",
+    body: "On a vacation home booking site, I fixed Google sign-in on iPhone, where only the edge of the button worked, by moving it to a server-side OAuth redirect. Also search results, pagination and event tracking.",
+  },
+  {
+    name: "Route",
+    url: "https://route.com",
+    what: "Next.js, Payload CMS",
+    body: "Components for their marketing site, like tabbed cards with horizontal scroll and a social proof block, and an inline demo request form. When their ad traffic dropped, I traced every release to rule the site in or out.",
+  },
+  {
+    name: "Motorq",
+    url: "https://www.motorq.com",
+    what: "Multi-step form, APIs",
+    body: "A capability check for fleets: paste or upload vehicle numbers, the form cleans and validates them, then hands off to their API and HubSpot. It ships from its own repo and Webflow loads it with one script. In progress.",
+  },
+  {
+    name: "Baringa",
+    url: null,
+    what: "AI chatbot, Webflow",
+    body: "An AI assistant on their Webflow site that answers from the site's own content. I built the widget's open and close API, so any button can start a chat, and the analytics events behind it.",
+  },
+  {
+    name: "Predibase",
+    url: "https://predibase.com",
+    what: "Gatsby, privacy, CMS",
+    body: "Found trackers that fired before cookie consent and moved them behind the consent manager. Also a model library page fed by their API, and a glossary migrated into Contentful so marketing can edit it.",
+  },
+  {
     name: "BlinkOps",
     url: "https://www.blinkops.com",
     what: "Webflow, GSAP",
-    body: "Custom interactions on a Webflow marketing site: a testimonial slider driven by GSAP and SplitText, and a tab system on ScrollTrigger. Also SEO and landing page copy.",
+    body: "Custom interactions on a Webflow site: a testimonial slider driven by GSAP and SplitText, and a tab system on ScrollTrigger. Also SEO and landing page copy.",
   },
   {
     name: "AirData",
     url: "https://airdata.com",
-    what: "Webflow, HubSpot, analytics",
-    body: "A multi-language Webflow site for a drone fleet platform. When Firefox tracking protection blocked the HubSpot form, I rebuilt it natively with branching by topic and kept leads flowing to HubSpot. I also present the weekly analytics review.",
+    what: "Webflow, HubSpot",
+    body: "A multi-language Webflow site for a drone fleet platform. When Firefox tracking protection blocked the HubSpot form, I rebuilt it natively with branching by topic and kept leads flowing to HubSpot.",
   },
   {
-    name: "haku",
-    url: "https://www.hakuapp.com",
-    what: "AI search readiness",
-    body: "Part of an audit for an event registration platform: making the site readable by AI agents and answer engines, plus redirects and FAQ content.",
+    name: "MatrixSpace",
+    url: "https://www.matrixspace.com",
+    what: "SEO, AI search",
+    body: "Technical audit and fixes so search engines and AI answers read the site well: schema, llms.txt, titles and redirects, tracked weekly in Semrush.",
   },
   {
     name: "Kindo",
     url: "https://kindo.ai",
     what: "n8n automation",
     body: "An end-to-end n8n workflow for AI search visibility, alongside Webflow and tag manager work.",
-  },
-  {
-    name: "AI chatbot",
-    url: null,
-    what: "Mastra",
-    body: "An embeddable assistant that answers only from a client's own documentation, installed on their site with one script tag. Built with the team.",
   },
 ];
 
