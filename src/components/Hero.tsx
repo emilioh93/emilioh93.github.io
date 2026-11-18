@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { LiveDemo } from "@/components/LiveDemo";
 
 const NAME = ["Emilio", "Hurtado"];
 const IDLE_AFTER_MS = 1800;
@@ -75,45 +74,46 @@ export function Hero() {
 
   let i = 0;
   return (
-    <section className="mx-auto grid max-w-6xl gap-16 px-6 pt-24 pb-24 sm:pt-32 sm:pb-32 lg:grid-cols-[1fr_31rem] lg:items-center lg:gap-12">
-      <div>
-        <h1
-          ref={ref}
-          aria-label="Emilio Hurtado"
-          className="font-display text-[clamp(4.25rem,19vw,9rem)] lg:text-[8.25rem] leading-[0.86] tracking-[-0.035em]"
-        >
-          {NAME.map((word) => (
-            <span key={word} aria-hidden className="block">
-              {word.split("").map((ch) => {
-                const delay = i++ * 0.035;
-                return (
-                  <motion.span
-                    key={`${word}-${delay}`}
-                    data-letter
-                    className="inline-block"
-                    style={{ fontVariationSettings: `"wght" 200, "wdth" 100` }}
-                    initial={reduce ? false : { opacity: 0, y: "0.25em" }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      delay,
-                      duration: 0.6,
-                      ease: [0.2, 0.7, 0.2, 1],
-                    }}
-                  >
-                    {ch}
-                  </motion.span>
-                );
-              })}
-            </span>
-          ))}
-        </h1>
-        <p className="mt-10 max-w-[30rem] text-xl leading-relaxed text-bone/90">
+    <section className="relative flex min-h-dvh flex-col justify-between bg-sun px-5 pt-28 pb-6 text-ink sm:px-8">
+      <h1
+        ref={ref}
+        aria-label="Emilio Hurtado"
+        className="my-auto font-display text-[clamp(4.5rem,21.5vw,22rem)] sm:my-0 leading-[0.8] tracking-[-0.04em]"
+      >
+        {NAME.map((word) => (
+          <span key={word} aria-hidden className="block">
+            {word.split("").map((ch) => {
+              const delay = i++ * 0.035;
+              return (
+                <motion.span
+                  key={`${word}-${delay}`}
+                  data-letter
+                  className="inline-block"
+                  style={{ fontVariationSettings: `"wght" 200, "wdth" 100` }}
+                  initial={reduce ? false : { opacity: 0, y: "0.25em" }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay,
+                    duration: 0.7,
+                    ease: [0.2, 0.7, 0.2, 1],
+                  }}
+                >
+                  {ch}
+                </motion.span>
+              );
+            })}
+          </span>
+        ))}
+      </h1>
+      <div className="mt-10 flex flex-wrap items-end justify-between gap-6">
+        <p className="max-w-[26rem] text-lg leading-snug">
           Front-end and design engineer in Córdoba, Argentina. I build product
-          interfaces in React, Next.js and TypeScript, and I care about the
-          parts people feel: type, spacing, motion and the moment after a click.
+          interfaces in React, Next.js and TypeScript.
+        </p>
+        <p className="text-sm text-ink/60" aria-hidden>
+          Scroll
         </p>
       </div>
-      <LiveDemo />
     </section>
   );
 }

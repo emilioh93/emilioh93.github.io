@@ -24,7 +24,11 @@ const PIECES = [
 
 export function Lab() {
   return (
-    <section id="lab" aria-labelledby="lab-title" className="mx-auto max-w-6xl px-6 py-24">
+    <section
+      id="lab"
+      aria-labelledby="lab-title"
+      className="mx-auto max-w-6xl px-6 py-24"
+    >
       <SectionTitle id="lab-title">Lab</SectionTitle>
       <p className="mt-4 max-w-[36rem] text-fog">
         Small interface studies. They are live, so try them.
@@ -32,15 +36,15 @@ export function Lab() {
       <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line bg-line lg:grid-cols-3">
         {PIECES.map(({ title, note, Demo }) => (
           <Spotlight key={title} className="bg-slate">
-          <figure className="flex h-full flex-col p-4">
-            <div className="relative">
-              <Demo />
-            </div>
-            <figcaption className="border-t border-line px-2 pt-4 pb-2">
-              <p className="text-bone">{title}</p>
-              <p className="mt-1 text-sm text-fog">{note}</p>
-            </figcaption>
-          </figure>
+            <figure className="flex h-full flex-col p-4">
+              <div className="relative">
+                <Demo />
+              </div>
+              <figcaption className="border-t border-line px-2 pt-4 pb-2">
+                <p className="text-bone">{title}</p>
+                <p className="mt-1 text-sm text-fog">{note}</p>
+              </figcaption>
+            </figure>
           </Spotlight>
         ))}
       </div>

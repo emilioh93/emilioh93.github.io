@@ -9,7 +9,10 @@
   --color-bone: #ebe7df;
   --color-fog: #949ba6;
   --color-iris: #9aa6ff;
-  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --color-sun: #f3c623;
+  --color-ink: #17150f;
+  --font-display:
+    "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui, sans-serif;
 }
 

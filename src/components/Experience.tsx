@@ -22,10 +22,17 @@ const ROLES = [
 export function Experience() {
   const ref = useRef<HTMLOListElement>(null);
   const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 80%", "end 60%"] });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 80%", "end 60%"],
+  });
 
   return (
-    <section id="experience" aria-labelledby="exp-title" className="mx-auto max-w-6xl px-6 py-24">
+    <section
+      id="experience"
+      aria-labelledby="exp-title"
+      className="mx-auto max-w-6xl px-6 py-24"
+    >
       <SectionTitle id="exp-title">Experience</SectionTitle>
       <ol ref={ref} className="relative mt-12 sm:pl-0">
         {/* Timeline rule draws itself as the list scrolls into view. */}

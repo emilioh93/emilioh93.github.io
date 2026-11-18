@@ -75,7 +75,10 @@ export function CommandMenu() {
         onClick={() => setOpen(true)}
         className="rounded-full border border-line bg-graphite px-4 py-2 text-sm text-bone transition-colors hover:border-fog"
       >
-        Open command menu <kbd className="ml-2 hidden text-fog [@media(hover:hover)]:inline">Ctrl K</kbd>
+        Open command menu{" "}
+        <kbd className="ml-2 hidden text-fog [@media(hover:hover)]:inline">
+          Ctrl K
+        </kbd>
       </button>
 
       <AnimatePresence>
@@ -129,10 +132,17 @@ export function CommandMenu() {
                   </li>
                 )}
                 {results.map((item, idx) => {
-                  const header = idx === 0 || results[idx - 1].group !== item.group ? item.group : null;
+                  const header =
+                    idx === 0 || results[idx - 1].group !== item.group
+                      ? item.group
+                      : null;
                   return (
                     <li key={item.id}>
-                      {header && <p className="px-3 pt-2 pb-1 text-xs text-fog">{header}</p>}
+                      {header && (
+                        <p className="px-3 pt-2 pb-1 text-xs text-fog">
+                          {header}
+                        </p>
+                      )}
                       <button
                         type="button"
                         role="option"
@@ -145,11 +155,19 @@ export function CommandMenu() {
                           <motion.span
                             layoutId="cmd-active"
                             className="absolute inset-0 rounded-lg bg-white/[0.06]"
-                            transition={{ type: "spring", stiffness: 600, damping: 40 }}
+                            transition={{
+                              type: "spring",
+                              stiffness: 600,
+                              damping: 40,
+                            }}
                           />
                         )}
                         <span className="relative">{item.label}</span>
-                        {item.hint && <kbd className="relative text-xs text-fog">{item.hint}</kbd>}
+                        {item.hint && (
+                          <kbd className="relative text-xs text-fog">
+                            {item.hint}
+                          </kbd>
+                        )}
                       </button>
                     </li>
                   );
