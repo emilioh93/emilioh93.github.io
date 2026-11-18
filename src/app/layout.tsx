@@ -16,7 +16,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          // Hide the name before first paint when the intro is going to play, so it never flashes.
+          dangerouslySetInnerHTML={{
+            __html:
+              "if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&!location.hash&&scrollY<80)document.documentElement.classList.add('intro')",
+          }}
+        />
+      </head>
       <body className="min-h-dvh">{children}</body>
     </html>
   );

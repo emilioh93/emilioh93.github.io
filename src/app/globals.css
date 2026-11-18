@@ -27,6 +27,29 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+html.intro [data-letter] {
+  opacity: 0;
+}
+
+[data-intro-hide] {
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+html.intro [data-intro-hide] {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+html.theming,
+html.theming * {
+  transition:
+    background-color 0.45s ease,
+    color 0.45s ease,
+    border-color 0.45s ease !important;
+}
+
 ::selection {
   background: var(--color-iris);
   color: var(--color-graphite);

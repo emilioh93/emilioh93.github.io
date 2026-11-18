@@ -24,7 +24,7 @@ export function Spotlight({ children, className = "" }: { children: React.ReactN
         className="pointer-events-none absolute inset-0 transition-opacity duration-300"
         style={{
           opacity: "var(--o, 0)",
-          background: "radial-gradient(420px circle at var(--x) var(--y), rgba(154,166,255,0.09), transparent 60%)",
+          background: "radial-gradient(420px circle at var(--x) var(--y), color-mix(in srgb, var(--color-iris) 11%, transparent), transparent 60%)",
         }}
       />
       {children}

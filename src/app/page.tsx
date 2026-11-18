@@ -3,6 +3,7 @@ import { Work } from "@/components/Work";
 import { Lab } from "@/components/Lab";
 import { Experience } from "@/components/Experience";
 import { ContactTitle } from "@/components/ContactTitle";
+import { TunePanel } from "@/components/TunePanel";
 
 export default function Home() {
   return (
@@ -34,6 +35,7 @@ export default function Home() {
           <p className="mt-16 text-sm text-fog">Córdoba, Argentina. Working in English with teams in US time zones.</p>
         </section>
       </main>
+      <TunePanel />
     </>
   );
 }
