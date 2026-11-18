@@ -1,16 +1,37 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { AnimatePresence, LayoutGroup, motion, useReducedMotion } from "motion/react";
+import {
+  AnimatePresence,
+  LayoutGroup,
+  motion,
+  useReducedMotion,
+} from "motion/react";
 
 type Status = "confirmed" | "dispatched";
 type Order = { id: number; name: string; size: string; status: Status };
-type Flight = { id: number; x: number; y: number; dx: number; dy: number; size: string };
+type Flight = {
+  id: number;
+  x: number;
+  y: number;
+  dx: number;
+  dy: number;
+  size: string;
+};
 
 const START_STOCK = 2;
 const CAPACITY = 5;
-const BUYERS = ["Martina G.", "Joaquín F.", "Lucía P.", "Tomás R.", "Valentina S.", "Bruno A.", "Camila D."];
+const BUYERS = [
+  "Martina G.",
+  "Joaquín F.",
+  "Lucía P.",
+  "Tomás R.",
+  "Valentina S.",
+  "Bruno A.",
+  "Camila D.",
+];
 const SIZES = ["S", "M", "L"];
+const STEPS = ["Sell out", "Take pre-orders", "Dispatch"];
 const spring = { type: "spring", stiffness: 420, damping: 34 } as const;
 
 // A working slice of Prevendé: buy until stock runs out, take pre-orders, then dispatch them when stock arrives.
@@ -36,6 +57,7 @@ export function LiveDemo() {
   const pending = orders.length + inFlight;
   const mode = stock > 0 ? "stock" : pending >= CAPACITY ? "full" : "preorder";
   const confirmed = orders.filter((o) => o.status === "confirmed").length;
+  const step = dispatching ? 2 : mode === "stock" ? 0 : 1;
 
   const later = (fn: () => void, ms: number) => {
     timers.current.push(window.setTimeout(fn, ms));
@@ -79,9 +101,18 @@ export function LiveDemo() {
   const stockArrived = useCallback(() => {
     if (dispatching || confirmed === 0 || inFlight) return;
     setDispatching(true);
-    const ids = orders.filter((o) => o.status === "confirmed").map((o) => o.id).reverse();
+    const ids = orders
+      .filter((o) => o.status === "confirmed")
+      .map((o) => o.id)
+      .reverse();
     ids.forEach((id, i) =>
-      later(() => setOrders((os) => os.map((o) => (o.id === id ? { ...o, status: "dispatched" } : o))), 450 + i * 420),
+      later(
+        () =>
+          setOrders((os) =>
+            os.map((o) => (o.id === id ? { ...o, status: "dispatched" } : o)),
+          ),
+        450 + i * 420,
+      ),
     );
     const done = 450 + ids.length * 420 + 1300;
     later(() => setOrders([]), done);
@@ -95,17 +126,32 @@ export function LiveDemo() {
   // Autoplay: one step at a time while on screen, until the visitor takes over.
   useEffect(() => {
     if (touched || reduce || !visible || dispatching) return;
-    const id = window.setTimeout(() => {
-      if (stock > 0 || orders.length + inFlight < 3) primary();
-      else stockArrived();
-    }, stock === START_STOCK && orders.length === 0 ? 1600 : 1250);
+    const id = window.setTimeout(
+      () => {
+        if (stock > 0 || orders.length + inFlight < 3) primary();
+        else stockArrived();
+      },
+      stock === START_STOCK && orders.length === 0 ? 1600 : 1250,
+    );
     return () => clearTimeout(id);
-  }, [touched, reduce, visible, dispatching, stock, orders.length, inFlight, primary, stockArrived]);
+  }, [
+    touched,
+    reduce,
+    visible,
+    dispatching,
+    stock,
+    orders.length,
+    inFlight,
+    primary,
+    stockArrived,
+  ]);
 
   useEffect(() => {
     const el = root.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => setVisible(e.isIntersecting), { threshold: 0.4 });
+    const io = new IntersectionObserver(([e]) => setVisible(e.isIntersecting), {
+      threshold: 0.4,
+    });
     io.observe(el);
     const t = timers.current;
     return () => {
@@ -115,11 +161,43 @@ export function LiveDemo() {
   }, []);
 
   return (
-    <div ref={root} onPointerDownCapture={() => setTouched(true)} onKeyDownCapture={() => setTouched(true)}>
+    <div
+      ref={root}
+      onPointerDownCapture={() => setTouched(true)}
+      onKeyDownCapture={() => setTouched(true)}
+    >
+      <p className="text-sm text-fog">Live demo of my own product</p>
+      <p className="mt-1 text-lg leading-snug text-bone">
+        Prevendé keeps a Tiendanube store selling after a product runs out, by
+        turning the sale into a pre-order.
+      </p>
+      <ol
+        className="mt-4 mb-5 flex flex-wrap gap-2 text-sm"
+        aria-label="Demo steps"
+      >
+        {STEPS.map((label, i) => (
+          <li
+            key={label}
+            className={`relative rounded-full px-3 py-1 ${step === i ? "text-graphite" : "text-fog"}`}
+          >
+            {step === i && (
+              <motion.span
+                layoutId="demo-step"
+                transition={spring}
+                className="absolute inset-0 rounded-full bg-bone"
+              />
+            )}
+            <span className="relative">
+              {i + 1}. {label}
+            </span>
+          </li>
+        ))}
+      </ol>
       <LayoutGroup>
         <div className="relative grid gap-4 sm:grid-cols-[15rem_1fr] sm:items-start">
           {/* Storefront */}
           <div className="rounded-2xl border border-line bg-slate p-4 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.7)]">
+            <p className="mb-3 text-xs text-fog">What the shopper sees</p>
             <div className="relative grid aspect-[4/3] place-items-center overflow-hidden rounded-xl bg-graphite">
               <Tee />
               <AnimatePresence>
@@ -163,7 +241,11 @@ export function LiveDemo() {
                 </motion.span>
               )}
             </div>
-            <div role="radiogroup" aria-label="Size" className="mt-3 flex gap-2">
+            <div
+              role="radiogroup"
+              aria-label="Size"
+              className="mt-3 flex gap-2"
+            >
               {SIZES.map((s) => (
                 <button
                   key={s}
@@ -186,7 +268,11 @@ export function LiveDemo() {
               transition={spring}
               style={{ borderRadius: 10 }}
               className={`relative mt-3 grid h-11 w-full place-items-center overflow-hidden text-sm font-medium transition-colors disabled:cursor-not-allowed ${
-                mode === "stock" ? "bg-bone text-graphite" : mode === "preorder" ? "bg-iris text-graphite" : "bg-line text-fog"
+                mode === "stock"
+                  ? "bg-bone text-graphite"
+                  : mode === "preorder"
+                    ? "bg-iris text-graphite"
+                    : "bg-line text-fog"
               }`}
             >
               <AnimatePresence initial={false}>
@@ -212,6 +298,9 @@ export function LiveDemo() {
 
           {/* Merchant panel */}
           <div className="rounded-2xl border border-line bg-slate p-4 sm:mt-10">
+            <p className="mb-3 text-xs text-fog">
+              What the store owner sees in Prevendé
+            </p>
             <div className="flex items-baseline justify-between gap-3">
               <p className="text-bone">Pre-orders</p>
               <p className="text-sm tabular-nums text-fog">
@@ -225,7 +314,10 @@ export function LiveDemo() {
                 transition={spring}
               />
             </div>
-            <div ref={list} className="relative mt-4 min-h-[9rem] sm:min-h-[13.5rem]">
+            <div
+              ref={list}
+              className="relative mt-4 min-h-[9rem] sm:min-h-[13.5rem]"
+            >
               <AnimatePresence initial={false}>
                 {orders.length === 0 && (
                   <motion.p
@@ -247,7 +339,11 @@ export function LiveDemo() {
                       layout
                       initial={{ opacity: 0, scale: 0.96, y: -8 }}
                       animate={{ opacity: 1, scale: 1, y: 0 }}
-                      exit={{ opacity: 0, x: 24, transition: { duration: 0.25 } }}
+                      exit={{
+                        opacity: 0,
+                        x: 24,
+                        transition: { duration: 0.25 },
+                      }}
                       transition={spring}
                       className="relative flex items-center justify-between rounded-lg border border-line bg-graphite px-3 py-2"
                     >
@@ -258,7 +354,10 @@ export function LiveDemo() {
                         <p className="text-xs text-fog">
                           Size {o.size}
                           {o.status === "dispatched" && (
-                            <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                            <motion.span
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                            >
                               , email sent
                             </motion.span>
                           )}
@@ -295,14 +394,20 @@ export function LiveDemo() {
             scale: [0.9, 1.05, 0.9],
             opacity: [0, 1, 0.9],
           }}
-          transition={{ duration: 0.72, ease: [0.4, 0, 0.2, 1], times: [0, 0.45, 1] }}
+          transition={{
+            duration: 0.72,
+            ease: [0.4, 0, 0.2, 1],
+            times: [0, 0.45, 1],
+          }}
         >
           #{f.id}, size {f.size}
         </motion.div>
       ))}
 
       <p className="mt-5 text-sm text-fog">
-        {touched ? "It’s yours. Sell it out, take pre-orders, then dispatch." : "A working slice of Prevendé, my pre-order app for Tiendanube stores. Click anything to take over."}
+        {touched
+          ? "It’s yours now. Sell out the tee, take pre-orders, then dispatch them."
+          : "It plays by itself. Click anything to take over."}
       </p>
     </div>
   );
@@ -339,21 +444,45 @@ function Envelope() {
       animate={{ opacity: [0, 1, 0], y: -34, x: 26, rotate: 12 }}
       transition={{ duration: 0.9, ease: "easeOut" }}
     >
-      <rect x="1" y="1" width="16" height="12" rx="2" fill="none" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M1.5 2 L9 8 L16.5 2" fill="none" stroke="currentColor" strokeWidth="1.5" />
+      <rect
+        x="1"
+        y="1"
+        width="16"
+        height="12"
+        rx="2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <path
+        d="M1.5 2 L9 8 L16.5 2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
     </motion.svg>
   );
 }
 
 function Tee() {
   return (
-    <svg viewBox="0 0 120 100" className="w-[58%] text-bone" aria-label="Oversize tee">
+    <svg
+      viewBox="0 0 120 100"
+      className="w-[58%] text-bone"
+      aria-label="Oversize tee"
+    >
       <path
         d="M40 12 C46 18 74 18 80 12 L104 24 L96 44 L86 40 L86 92 L34 92 L34 40 L24 44 L16 24 Z"
         fill="currentColor"
         opacity="0.92"
       />
-      <path d="M46 14 C52 22 68 22 74 14" fill="none" stroke="var(--color-graphite)" strokeWidth="2" opacity="0.35" />
+      <path
+        d="M46 14 C52 22 68 22 74 14"
+        fill="none"
+        stroke="var(--color-graphite)"
+        strokeWidth="2"
+        opacity="0.35"
+      />
     </svg>
   );
 }
