@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@import "@fontsource-variable/bricolage-grotesque/standard.css";
+@import "@fontsource-variable/instrument-sans";
+
+@theme {
+  --color-graphite: #151a21;
+  --color-slate: #1d232c;
+  --color-line: #2a313b;
+  --color-bone: #ebe7df;
+  --color-fog: #949ba6;
+  --color-iris: #9aa6ff;
+  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  background: var(--color-graphite);
+  color: var(--color-bone);
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-iris);
+  color: var(--color-graphite);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-iris);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
