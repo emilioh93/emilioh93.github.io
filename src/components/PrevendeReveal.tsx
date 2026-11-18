@@ -41,11 +41,17 @@ export function PrevendeReveal() {
     const t = Math.min(1, Math.max(0, (p - 0.12) / 0.66));
     const s = Math.pow(MAX_SCALE, t * t);
     const { x, y } = origin.current;
-    g.setAttribute("transform", `translate(${x} ${y}) scale(${s}) translate(${-x} ${-y})`);
+    g.setAttribute(
+      "transform",
+      `translate(${x} ${y}) scale(${s}) translate(${-x} ${-y})`,
+    );
     // Past roughly 8000px of rendered font size the glyphs vanish, so fade the cover out first.
     const size = s * fsRef.current;
     const fade = Math.min(1 - (size - 4500) / 3000, (1 - t) / 0.12);
-    cover.current?.setAttribute("opacity", String(Math.min(1, Math.max(0, fade))));
+    cover.current?.setAttribute(
+      "opacity",
+      String(Math.min(1, Math.max(0, fade))),
+    );
   }
 
   // Track the screen size; the word is then fitted to it and the dive point found inside the "P".
@@ -54,7 +60,11 @@ export function PrevendeReveal() {
     if (!el) return;
     const update = () => {
       const r = el.getBoundingClientRect();
-      setBox((b) => ({ ...b, w: Math.max(1, r.width), h: Math.max(1, r.height) }));
+      setBox((b) => ({
+        ...b,
+        w: Math.max(1, r.width),
+        h: Math.max(1, r.height),
+      }));
     };
     update();
     document.fonts.ready.then(() => setFontsReady(true));

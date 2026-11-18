@@ -3,6 +3,8 @@ import { Manifesto } from "@/components/Manifesto";
 import { PrevendeReveal } from "@/components/PrevendeReveal";
 import { Demo } from "@/components/Demo";
 import { Listero } from "@/components/Listero";
+import { PrevendeCase } from "@/components/PrevendeCase";
+import { ClientWork } from "@/components/ClientWork";
 import { Experience } from "@/components/Experience";
 import { ContactTitle } from "@/components/ContactTitle";
 
@@ -30,7 +32,9 @@ export default function Home() {
         <Manifesto />
         <PrevendeReveal />
         <Demo />
+        <PrevendeCase />
         <Listero />
+        <ClientWork />
         <Experience />
         <section
           id="contact"

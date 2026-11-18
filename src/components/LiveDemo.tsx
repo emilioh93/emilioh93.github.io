@@ -314,10 +314,7 @@ export function LiveDemo() {
                 transition={spring}
               />
             </div>
-            <div
-              ref={list}
-              className="relative mt-4 min-h-[9rem] flex-1"
-            >
+            <div ref={list} className="relative mt-4 min-h-[9rem] flex-1">
               <AnimatePresence initial={false}>
                 {orders.length === 0 && (
                   <motion.p

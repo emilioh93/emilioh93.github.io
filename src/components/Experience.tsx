@@ -9,13 +9,13 @@ const ROLES = [
     company: "Brightscout",
     role: "Front-end developer",
     when: "2025 to now",
-    text: "Remote, for a US agency. Front-end builds and integrations for 10+ B2B SaaS clients at once, plus an embeddable AI chatbot that answers only from a client's documentation. Proposed a component naming process with the design director to keep inherited sites consistent.",
+    text: "Remote, for a US agency. Front-end builds and integrations for 10+ B2B SaaS clients at once, some of them above. Proposed a component naming process with the design director to keep inherited sites consistent.",
   },
   {
     company: "Scalar",
     role: "Senior front-end developer",
     when: "2021 to 2025",
-    text: "Led the features team on Investors App, a spreadsheet-style valuation platform that investment funds use instead of Excel models. React and Redux on a Python and Django back-end. Also led the firm's first AI agents project.",
+    text: "Led the features team on Investors App, a spreadsheet-style valuation platform that investment funds use instead of Excel models: React and Redux on a Python and Django back-end. Also led the firm's first AI agents project, two agents built on AnythingLLM, one for sales follow-up and one that assists with valuations.",
   },
 ];
 
